@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cashless.Domain\Cashless.Domain.csproj" />
+    <ProjectReference Include="..\Cashless.Storage\Cashless.Storage.csproj" />
+  </ItemGroup>
+
+</Project>

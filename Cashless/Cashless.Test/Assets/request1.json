@@ -1,0 +1,11 @@
+{
+  "paymentMethod": "CreditCard",
+  "paymentData": {
+    "cardNumber": "",
+    "expirationDate": "",
+    "cardName": "",
+    "cvv": "",
+    "customerDocument": ""
+  },
+  "tokenQuantity": 100
+}
