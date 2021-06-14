@@ -2,6 +2,15 @@
   
 &nbsp;  
 
+## Real test
+
+I made now two new endpoints that do as asked:
+
+* /card/save
+* /card/validate
+
+Both are in the swagger docs
+
 ## Proposition
 
 

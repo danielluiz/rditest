@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cashless.Domain.Card.Class;
 using Cashless.Domain.Data.Class;
 
 namespace Cashless.Storage
@@ -9,6 +10,7 @@ namespace Cashless.Storage
         public static List<Customer> Customers { get; set; }
         public static List<Purchase> Purchases { get; set; } = new List<Purchase>();
         public static List<Transfer> Transfers { get; set; } = new List<Transfer>();
+        public static List<SavedCard> Cards { get; set; } = new List<SavedCard>();
 
         static Storage()
         {

@@ -2,9 +2,11 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using Cashless.Business.Card;
 using Cashless.Business.Cash;
 using Cashless.Business.Cashless;
 using Cashless.Business.Data;
+using Cashless.Domain.Card.Interface;
 using Cashless.Domain.Cash.Interface;
 using Cashless.Domain.Cashless.Interface;
 using Cashless.Domain.Data;
@@ -41,6 +43,7 @@ namespace Cashless.Web
             services.AddScoped<IPayment, CardPay>();
             services.AddScoped<IPayment, TokenPay>();
             services.AddScoped<ITokenTransfer, TokenTransfer>();
+            services.AddScoped<ICard, CardHandler>();
 
             services.AddControllers()
                 .AddNewtonsoftJson();

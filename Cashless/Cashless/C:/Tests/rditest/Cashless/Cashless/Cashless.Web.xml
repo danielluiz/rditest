@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cashless.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Cashless.Web.AuthHandler">
+            <summary>
+            Handles Authentication
+            </summary>
+        </member>
+        <member name="M:Cashless.Web.AuthHandler.GenerateToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="customerId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cashless.Web.AuthHandler.Authenticate(Microsoft.AspNetCore.Http.HttpContext,System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Authenticates the API as a middleware
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+        </member>
+        <member name="T:Cashless.Web.Controllers.CardController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cashless.Web.Controllers.CardController.Save(Cashless.Domain.Card.Class.SaveCardRequest)">
+            <summary>
+            Save the card token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cashless.Web.Controllers.CardController.Validate(Cashless.Domain.Card.Class.ValidateCardTokenRequest)">
+            <summary>
+            Validates a card token
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cashless.Web.Controllers.StatusController">
+            <summary>
+            Checks the Status of the data in the app, for testing only, doesn't require authentication
+            </summary>
+        </member>
+        <member name="M:Cashless.Web.Controllers.StatusController.#ctor(Cashless.Domain.Data.IStatus)">
+            <summary>
+            Default controller for injection
+            </summary>
+            <param name="status"></param>
+        </member>
+        <member name="M:Cashless.Web.Controllers.StatusController.Get">
+            <summary>
+            Gets the status of the application
+            </summary>
+            <returns>Everything that's in the memory data</returns>
+        </member>
+        <member name="M:Cashless.Web.Controllers.StatusController.GetCustomer1Token">
+            <summary>
+            Gets the jwt token of the custmer 1, test only
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cashless.Web.Controllers.StatusController.GetCustomer2Token">
+            <summary>
+            Gets the jwt token of the custmer 1, test only
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cashless.Web.Controllers.TokenController">
+            <summary>
+            Route for token purchase and spending
+            </summary>
+        </member>
+        <member name="M:Cashless.Web.Controllers.TokenController.Buy(Newtonsoft.Json.Linq.JObject)">
+             <summary>
+             Buy tokens, each for R$ 0,10
+            The endpoint has to be called like this:
+             
+             ROUTE: /token/buy
+             METHOD: POST
+             HEADERS:
+             Authorization: Bearer [Token]
+             DATA:
+             {
+             "paymentMethod": "",
+             "paymentData": {
+             [This object will change based on paymentMethod]
+             }
+             "tokenQuantity": 0        
+             }
+             
+             These are the payment methods available at the moment:
+             
+             CreditCard
+             DebitCard
+             GooglePay
+             ApplePay
+             Pix
+             
+             For the CreditCard and DebitCard payment methods, the paymentData is:
+             
+             {
+             "cardNumber": "",
+             "expirationDate": "",
+             "cardName": "",
+             "cvv": "",
+             "customerDocument": ""
+             }
+             
+             For the GooglePay, ApplePay and Pix payment methods, the paymentData is:
+             
+             {
+             "token": ""
+             }
+             
+             </summary>
+             <param name="obj"></param>
+             <returns></returns>
+        </member>
+        <member name="M:Cashless.Web.Controllers.TokenController.Spend(Cashless.Domain.Cashless.Class.TokenTransferRequest)">
+            <summary>
+            Spend the tokens, transfering them to a vendor
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cashless.Web.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cashless.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Cashless.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline. 
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

@@ -54,8 +54,9 @@ namespace Cashless.Web
         {
             //Path that has no authentication
             if (
-                context.Request.Path.Value.Contains("status")
-                || context.Request.Path.Value.Contains("swagger")
+                context.Request.Path.Value.Contains("status", StringComparison.InvariantCultureIgnoreCase)
+                || context.Request.Path.Value.Contains("swagger", StringComparison.InvariantCultureIgnoreCase)
+                || context.Request.Path.Value.Contains("card", StringComparison.InvariantCultureIgnoreCase)
             )
             {
                 await next();
